@@ -16,7 +16,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 //}
 Console.WriteLine("now using latest version");
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseCors("AllowAll");
