@@ -19,8 +19,7 @@ Console.WriteLine("now using latest version");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseCors();
-
+app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();
