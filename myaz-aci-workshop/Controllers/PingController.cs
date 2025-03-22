@@ -11,6 +11,7 @@ public class PingController : ControllerBase
 
     public PingController()
     {
+        Console.WriteLine("ping from controller");
         if (!Directory.Exists(DirectoryPath))
         {
             Directory.CreateDirectory(DirectoryPath);
