@@ -13,6 +13,7 @@ builder.Services.AddCors(options =>
 });
 
 // Add controllers
+Console.WriteLine("latest version");
 builder.Services.AddControllers();
 
 var app = builder.Build();
