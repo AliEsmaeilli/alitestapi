@@ -6,7 +6,7 @@ namespace myaz_aci_workshop.Controllers;
 [Route("ping")]
 public class PingController : ControllerBase
 {
-    public List<string> Ping { get; set; } = [];
+    public static List<string> Ping { get; set; } = [];
 
     [HttpGet]
     public IEnumerable<string> Get()
