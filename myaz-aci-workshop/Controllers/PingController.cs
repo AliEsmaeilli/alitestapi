@@ -6,32 +6,18 @@ namespace myaz_aci_workshop.Controllers;
 [Route("ping")]
 public class PingController : ControllerBase
 {
-    private static readonly string DirectoryPath = Path.Combine(AppContext.BaseDirectory, "times");
-    private static readonly string FilePath = Path.Combine(DirectoryPath, "timestamps.txt");
-
-    public PingController()
-    {
-        Console.WriteLine("ping from controller");
-        if (!Directory.Exists(DirectoryPath))
-        {
-            Directory.CreateDirectory(DirectoryPath);
-        }
-    }
+    public List<string> Ping { get; set; } = [];
 
     [HttpGet]
     public IEnumerable<string> Get()
     {
-        if (!System.IO.File.Exists(FilePath))
-        {
-            return Enumerable.Empty<string>();
-        }
-        return System.IO.File.ReadAllLines(FilePath);
+        return Ping;
     }
 
     [HttpPost]
     public void Post()
     {
         var timestamp = DateTime.Now.Ticks.ToString();
-        System.IO.File.AppendAllText(FilePath, timestamp + "\n");
+        Ping.Add(timestamp);
     }
 }
